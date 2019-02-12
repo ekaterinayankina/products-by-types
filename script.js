@@ -1,8 +1,7 @@
 'use strict';
-
 $(function () {
+    $.fancybox.showLoading();
     $.getJSON('products.json', function (data) {
-
         let sale = {
             title: "Распродажа",
             item: filterData(data, 'sale')
@@ -21,11 +20,20 @@ $(function () {
         let tmpl = document.getElementById('productTemplate').innerHTML.trim();
         tmpl = _.template(tmpl);
 
-
         renderTemplate(sale, tmpl, "sale");
         renderTemplate(promo, tmpl, "promo");
         renderTemplate(recommended, tmpl, "recommended");
-    });
+    })
+        .done(function () {
+            console.log("Success");
+        })
+        .fail(function () {
+            console.log("Try again");
+        })
+        .always(function () {
+            $.fancybox.hideLoading();
+            console.log("Complete");
+        });
 });
 
 function filterData(data, text) {
