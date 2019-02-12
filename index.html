@@ -5,38 +5,37 @@
     <title>Товары</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="sale"></div>
 <div id="promo"></div>
 <div id="recommended"></div>
-
 <!-- Ваш шаблон. Код можно менять тлько внутри этого тега <script>,
 остальной HTML трогать нельзя. -->
 <script type="text/template" id="productTemplate">
 
-    <% sortDataSet.forEach((category) => { %>
     <div class="category">
-        <div class="category__title"><%= category.title %></div>
+        <div class="category__title"> <%=temp.title%></div>
         <div class="category__products">
-            <% category.item.forEach((product) => { %>
-                <img src="<%= product.pic %>" alt="" class="category__products__img">
-                <p><%= product.name %></p>
-                <p><%= product.price %></p>
+            <% temp.item.forEach((product) => { %>
+            <div class="product">
+                <img src="media/products/<%= product.pic %>" alt="" class="product__img">
+                <p class="product__description"><%= product.name %></p>
+                <p class="product__price">Цена: <%= product.price %>&#8381;</p>
+            </div>
             <% }); %>
         </div>
     </div>
 
-    <% }) %>
-
-
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"
         integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>

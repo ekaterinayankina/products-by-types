@@ -1,0 +1,44 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.category {
+    padding: 10px;
+    clear: left;
+    margin-bottom: 10px;
+}
+
+.category__title {
+    font-size: 34px;
+}
+
+.category__products {
+
+}
+
+.product {
+    width: 400px;
+    height: 510px;
+    float: left;
+    padding: 10px;
+}
+
+.product__price {
+    font-size: 14px;
+    margin: 0;
+}
+
+.product__img {
+    display: block;
+    margin: 0 auto;
+   width: 270px;
+}
+
+.product__description {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
