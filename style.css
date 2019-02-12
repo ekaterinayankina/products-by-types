@@ -6,20 +6,19 @@ body, html {
 .category {
     padding: 10px;
     clear: left;
-    margin-bottom: 10px;
+    height: 350px;
 }
 
 .category__title {
-    font-size: 34px;
+    font-size: 26px;
 }
 
 .category__products {
-
 }
 
 .product {
-    width: 400px;
-    height: 510px;
+    width: 200px;
+    height: 300px;
     float: left;
     padding: 10px;
 }
@@ -32,11 +31,11 @@ body, html {
 .product__img {
     display: block;
     margin: 0 auto;
-   width: 270px;
+    width: 135px;
 }
 
 .product__description {
-    font-size: 18px;
+    font-size: 12px;
     font-weight: bold;
     margin: 0;
 }
