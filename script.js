@@ -1,21 +1,23 @@
 'use strict';
 $(function () {
     //получить аяксом JSON
-    let getData = $.getJSON('products.json', function(data){
-
-    })
-        .success(function(data) {
-            alert("Успешное выполнение");
-            let items = [];
-            $.each(data, function(key, val){
-                items.push('<li id="' + key + '">' + val + '</li>');
-            });
-
-            $('<ul/>', {
-                'class': 'my-new-list',
-                html: items.join('')
-            }).appendTo('body');
-        })
-        .error(function() { alert("Ошибка выполнения"); })
-        .complete(function() { alert("Завершение выполнения"); });
+    $.getJSON('products.json', function(data) {
+        let sale = data.filter(function(product) {
+            return product.type==='sale';
+        });
+        let promo = data.filter(function(product) {
+            return product.type==='promo';
+        });
+        let recommended = data.filter(function(product) {
+            return product.type==='recommended';
+        });
+        let sortDataSet = [
+                {title:'Распродажа', item: sale},
+                {title:'Промо акция', item: promo},
+                {title:'Рекомендуемые товары', item: recommended}
+        ];
+    });
+    var tmpl = _.template(document.getElementById('productTemplate').innerHTML);
+    var result = tmpl({sortDataSet});
+    document.write( result );
 });

@@ -14,6 +14,22 @@
 <!-- Ваш шаблон. Код можно менять тлько внутри этого тега <script>,
 остальной HTML трогать нельзя. -->
 <script type="text/template" id="productTemplate">
+
+    <% sortDataSet.forEach((category) => { %>
+    <div class="category">
+        <div class="category__title"><%= category.title %></div>
+        <div class="category__products">
+            <% category.item.forEach((product) => { %>
+                <img src="<%= product.pic %>" alt="" class="category__products__img">
+                <p><%= product.name %></p>
+                <p><%= product.price %></p>
+            <% }); %>
+        </div>
+    </div>
+
+    <% }) %>
+
+
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
